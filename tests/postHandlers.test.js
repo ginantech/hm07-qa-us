@@ -2,19 +2,44 @@
 const config = require('../config');
 
 const requestBody = {
-    // put your body here
+		"deliveryTime": 9,
+		"productsCount": 10,
+		"productsWeight": 11
 }
 
-test('', async () => {
+test('Status should return 200', async () => {
+	let actualStatusCode;
     try {
-		const response = await fetch(`${config.API_URL}/your/endpoint`, {
+		const response = await fetch(`${config.API_URL}/order-and-go/v1/delivery`, {
 			method: 'POST',
 			headers: {
 			'Content-Type': 'application/json'
 			},
 			body: JSON.stringify(requestBody)
 		});
+			actualStatusCode = response.status
+			console.log(response);
 	} catch (error) {
 		console.error(error);
 	}
+	expect(actualStatusCode).toBe(200); 
+});
+
+
+test('Status Body should contain correct data', async () => {
+	let StatusBody;
+    try {
+		const response = await fetch(`${config.API_URL}/order-and-go/v1/delivery`, {
+			method: 'POST',
+			headers: {
+			'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(requestBody)
+		});
+			StatusBody = response.status
+			console.log(response);
+	} catch (error) {
+		console.error(error);
+	}
+	expect(StatusBody).toBe(200); 
 });
