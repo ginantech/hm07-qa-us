@@ -8,5 +8,6 @@ test('Kit is deleted', async () => {
 		});
 	} catch (error) {
 		console.error(error);
+		expect(DeletedKit).toBe(200);
 	}
 });

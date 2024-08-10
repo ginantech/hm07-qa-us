@@ -33,5 +33,6 @@ test('Response is returned 200', async () => {
 		});
 	} catch (error) {
 		console.error(error);
+        expect(requestBody).toBe(200);
 	}
 });
