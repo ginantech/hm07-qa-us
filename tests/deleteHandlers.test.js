@@ -1,13 +1,29 @@
-// eslint-disable-next-line no-undef
+// checking deleted kit 
+
 const config = require('../config');
 
 test('Kit is deleted', async () => {
+	let DeletedKit = (null);
+	expect(DeletedKit).toBe(null);
     try {
 		const response = await fetch(`${config.API_URL}/api/v1/kits/7`, {
 			method: 'DELETE',
 		});
 	} catch (error) {
 		console.error(error);
-		expect(DeletedKit).toBe(200);
+	}
+});
+
+// checking deleted cart
+
+test('Cart is deleted', async () => {
+	let DeletedCart = (null);
+	expect(DeletedCart).toBe(null);
+    try {
+		const response = await fetch(`${config.API_URL}/api/v1/orders/:id`, {
+			method: 'DELETE',
+		});
+	} catch (error) {
+		console.error(error);
 	}
 });

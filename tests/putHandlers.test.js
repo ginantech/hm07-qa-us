@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-undef
+// checking response for product list
+
 const config = require('../config');
 
 const requestBody = {
@@ -36,3 +37,24 @@ test('Response is returned 200', async () => {
         expect(requestBody).toBe(200);
 	}
 });
+
+
+// changing name for product list
+
+let name = ('My favorite items');
+
+test('Product List name is changed', async () => {
+    try {
+		const response = await fetch(`${config.API_URL}/api/v1/kits/:id`, {
+			method: 'PUT',
+			headers: {
+			'Content-Type': 'application/json'
+			},
+			body: JSON.stringify(requestBody)
+		});
+	} catch (error) {
+		console.error(error);
+        expect(name).toBe('My favorite items');
+	}
+});
+

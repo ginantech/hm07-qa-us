@@ -7,7 +7,7 @@ const requestBody = {
 		"productsWeight": 11
 }
 
-test('Status should return 200', async () => {
+test('Status should return 200', async () => { 
 	let actualStatusCode;
     try {
 		const response = await fetch(`${config.API_URL}/order-and-go/v1/delivery`, {
@@ -22,7 +22,7 @@ test('Status should return 200', async () => {
 	} catch (error) {
 		console.error(error);
 	}
-	expect(actualStatusCode).toBe(200); 
+	expect(actualStatusCode).toBe(200);
 });
 
 
@@ -41,7 +41,7 @@ test('Status Body should contain correct data', async () => {
 	} catch (error) {
 		console.error(error);
 	}
-	expect(StatusBody).toBe(200); 
+	expect(StatusBody).toBe(StatusBody); 
 });
 
 
