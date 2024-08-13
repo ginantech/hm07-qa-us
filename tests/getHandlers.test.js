@@ -1,4 +1,5 @@
-// eslint-disable-next-line no-undef
+// checking Status
+
 const config = require('../config');
 
 test('status should return 200', async () => {
@@ -13,6 +14,7 @@ test('status should return 200', async () => {
 
 });
 
+// checking body contains correct data
 
 test('body should contain expected data', async () => {
 	let actualBody;

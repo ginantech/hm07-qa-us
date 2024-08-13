@@ -2,28 +2,32 @@
 
 const config = require('../config');
 
-test('Kit is deleted', async () => {
-	let DeletedKit = (null);
-	expect(DeletedKit).toBe(null);
+test('Response should be 200', async () => {
+	let actualStatusCode;
     try {
 		const response = await fetch(`${config.API_URL}/api/v1/kits/7`, {
 			method: 'DELETE',
 		});
+		actualStatusCode = response.status;
+		Console.log(actualStatusCode);
 	} catch (error) {
-		console.error(error);
 	}
+	expect(actualStatusCode).toBe(200);
 });
 
 // checking deleted cart
 
-test('Cart is deleted', async () => {
-	let DeletedCart = (null);
-	expect(DeletedCart).toBe(null);
+
+test('actual Response Body contains correct data', async () => {
+    let actualResponseBody;
     try {
-		const response = await fetch(`${config.API_URL}/api/v1/orders/:id`, {
-			method: 'DELETE',
-		});
-	} catch (error) {
-		console.error(error);
-	}
-});
+        const response = await fetch(`${config.API_URL}/api/v1/kits/7`, {
+            method: 'DELETE',
+        });
+        actualResponseBody = await response.json();
+        console.log(actualResponseBody)
+    } catch (error) {
+        console.error(error);
+    }
+    expect(actualResponseBody.ok).toBe(true);
+}); 
